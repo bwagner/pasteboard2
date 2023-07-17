@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 [project]
 name = "pasteboard2"
-version = "0.0.1"
+version = "0.0.4"
 authors = [
   { name="Bernhard Wagner", email="pasteboard2@nosuch.biz" },
 ]
@@ -19,7 +19,7 @@ dependencies = [
 classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",
-    "Operating System :: OS Independent",
+    "Operating System :: MacOS :: MacOS X",
 ]
 
 [project.urls]
