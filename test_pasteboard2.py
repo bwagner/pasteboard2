@@ -1,5 +1,5 @@
-
 import pytest
+
 from pasteboard2 import *
 
 
@@ -83,4 +83,3 @@ def test_get_pasteboard_types():
     set_content("Hello, World!")
     # Assert that the list includes PLAIN_TEXT_UTF8 after adding text content
     assert PLAIN_TEXT_UTF8 in get_types()
-
