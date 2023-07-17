@@ -1,5 +1,4 @@
 # Pasteboard2
-
 Pasteboard2 is a simple Python module and command line tool to get content and
 its types from the macOS pasteboard (clipboard). The implementation relies on
 [PyObjC](https://pypi.org/project/pyobjc/) and is modeled after the
@@ -35,17 +34,18 @@ its types from the macOS pasteboard (clipboard). The implementation relies on
 ## Test
 ```
 git clone https://github.com/bwagner/pasteboard2.git
+cd pasteboard2
 python -m venv ~/venv/pb2
 source ~/venv/pb2/bin/activate
 pip install -r requirements.txt
 ./pasteboard2.py test
+deactivate
+rm -rf ~/venv/pb2
 ```
-
 ## Requirements
 - pyobjc
 - typer
 - pytest (for development)
-
 ## Alternatives
 - https://pypi.org/project/pasteboard/ \
   https://github.com/tobywf/pasteboard \
