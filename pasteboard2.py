@@ -186,7 +186,7 @@ if __name__ == "__main__":
     PGM = Path(__file__).name
 
     class Main:
-        app = typer.Typer()
+        app = typer.Typer(add_completion=False)
 
         def __init__(self):
             pass
