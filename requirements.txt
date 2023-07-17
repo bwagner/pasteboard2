@@ -1,0 +1,3 @@
+pyobjc
+pytest
+typer
