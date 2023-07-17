@@ -8,6 +8,7 @@ its types from the macOS pasteboard (clipboard). The implementation relies on
 
 ## Command Line Usage
 ### Top Level
+```
  Usage: pasteboard2.py [OPTIONS] COMMAND [ARGS]...
 
 ╭─ Options ──────────────────────────────────────────────────────────────────────────╮
@@ -19,9 +20,9 @@ its types from the macOS pasteboard (clipboard). The implementation relies on
 │ test             Run tests with pytest and doctest.                                │
 │ types            List the content types of the current pasteboard.                 │
 ╰────────────────────────────────────────────────────────────────────────────────────╯
-
-
+```
 ### Clip Subcommand
+```
  Usage: pasteboard2.py clip [OPTIONS]
 
  Print the content of the pasteboard if it's a string.
@@ -30,7 +31,7 @@ its types from the macOS pasteboard (clipboard). The implementation relies on
 │ --type  -t      TEXT  The type of content to get [default: public.utf8-plain-text] │
 │ --help                Show this message and exit.                                  │
 ╰────────────────────────────────────────────────────────────────────────────────────╯
-
+```
 ## Test
 ```
 git clone https://github.com/bwagner/pasteboard2.git
