@@ -3,6 +3,7 @@
 
 __pycache__/
 *.py[cod]
+dist/
 
 .idea/git_toolbox_prj.xml
 
