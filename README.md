@@ -37,6 +37,7 @@ git clone https://github.com/bwagner/pasteboard2.git
 cd pasteboard2
 python -m venv ~/venv/pb2
 source ~/venv/pb2/bin/activate
+python -m pip install --upgrade pip setuptools wheel
 pip install -r requirements.txt
 ./src/pasteboard2/pasteboard2.py test
 deactivate
@@ -46,6 +47,18 @@ rm -rf ~/venv/pb2
 - pyobjc
 - typer
 - pytest (for development)
+
+## Contribute
+```
+git clone https://github.com/bwagner/pasteboard2.git
+cd pasteboard2
+source ~/venv/pb2/bin/activate
+python -m pip install --upgrade pip setuptools wheel
+pip install -r requirements.txt
+pre-commit install
+
+```
+
 ## Alternatives
 - https://pypi.org/project/pasteboard/ \
   https://github.com/tobywf/pasteboard \
@@ -53,4 +66,3 @@ rm -rf ~/venv/pb2
 
 - https://pypi.org/project/tacky/ \
   https://github.com/friedenberg/tacky
-
