@@ -88,7 +88,7 @@ def get_content(t: str = None) -> str | None:
         return content
 
 
-## Main ########################################################################
+# Main ########################################################################
 
 if __name__ == "__main__":
     import doctest
@@ -160,8 +160,8 @@ if __name__ == "__main__":
                     f"""
                 Unknown content type{'s' if len(types) > 1 else ''}:
                 {types_str}
-                Call `{PGM} clip -t TYPE` with the type of content you want to get,
-                e.g.:
+                Call `{PGM} clip -t TYPE`
+                with the type of content you want to get, e.g.:
                 {PGM} clip -t {types[0]}
                 """
                 )
