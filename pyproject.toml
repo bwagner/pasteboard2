@@ -25,3 +25,5 @@ classifiers = [
 [project.urls]
 "Homepage" = "https://github.com/bwagner/pasteboard2"
 "Bug Tracker" = "https://github.com/bwagner/pasteboard2/issues"
+[tool.isort]
+profile = 'black'
