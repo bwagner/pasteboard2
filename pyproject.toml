@@ -27,3 +27,12 @@ classifiers = [
 "Bug Tracker" = "https://github.com/bwagner/pasteboard2/issues"
 [tool.isort]
 profile = 'black'
+[project.scripts]
+pb2 = "pasteboard2.__main__:main"
+[tool.pytest.ini_options]
+addopts = "--doctest-modules"
+doctest_optionflags = "NORMALIZE_WHITESPACE ELLIPSIS"
+testpaths = [
+    "pasteboard2",
+    "tests",
+]

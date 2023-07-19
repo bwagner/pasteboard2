@@ -16,7 +16,6 @@ its types from the macOS pasteboard (clipboard). The implementation relies on
 ╭─ Commands ─────────────────────────────────────────────────────────────────────────╮
 │ clear            Empties the pasteboard.                                           │
 │ clip             Print the content of the pasteboard if it's a string.             │
-│ test             Run tests with pytest and doctest.                                │
 │ types            List the content types of the current pasteboard.                 │
 ╰────────────────────────────────────────────────────────────────────────────────────╯
 ```
@@ -39,10 +38,14 @@ python -m venv ~/venv/pb2
 source ~/venv/pb2/bin/activate
 python -m pip install --upgrade pip setuptools wheel
 pip install -r requirements.txt
-./pasteboard2/pasteboard2.py test
+pytest
 deactivate
 rm -rf ~/venv/pb2
 ```
+## TODO
+[pbv](https://github.com/chee/pbv) offers reading from
+several pasteboards. We should, too.
+
 ## Requirements
 - pyobjc
 - typer

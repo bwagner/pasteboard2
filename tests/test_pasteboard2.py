@@ -50,6 +50,10 @@ def test_pasteboard_types_empty_at_start():
     assert get_types() == []
 
 
+def test_pasteboard_types_str_empty_at_start():
+    assert get_types_str() == ""
+
+
 def test_pasteboard_set_content():
     # Set content to pasteboard
     set_content("Hello, World!")
@@ -82,4 +86,4 @@ def test_get_pasteboard_types():
     # Set content to pasteboard
     set_content("Hello, World!")
     # Assert that the list includes PLAIN_TEXT_UTF8 after adding text content
-    assert PLAIN_TEXT_UTF8 in get_types()
+    assert pasteboard2.PLAIN_TEXT_UTF8 in get_types()
