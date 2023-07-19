@@ -1,19 +1,44 @@
 #!/usr/bin/env python
 
+import importlib.metadata as im
+import sys
+import tomllib
 from pathlib import Path
 
 import typer
 
 from pasteboard2 import *
 
-PGM = Path(__file__).name
+
+def _get_name(module_name):
+    ep_key = f"{module_name}.{Path(__file__).stem}:main"
+    eps = im.entry_points()
+    ep = eps.select(value=ep_key)
+    name = tuple(ep)[0].name if ep else Path(sys.argv[0]).name
+    return ep, name
 
 
 class Main:
     app = typer.Typer(add_completion=False)
 
-    def __init__(self):
-        pass
+    MODULE_NAME = Path(__file__).parent.name
+    ep, name = _get_name(MODULE_NAME)
+
+    @staticmethod
+    @app.command()
+    def version():
+        """
+        Outputs the version number.
+        """
+        if Main.ep:
+            typer.echo(im.version(Main.MODULE_NAME))
+        else:
+            pyproject_toml = Path(__file__).parent.parent / "pyproject.toml"
+            print(f"no meta info available for {Main.MODULE_NAME}")
+            print(f"taking version from {pyproject_toml}:")
+            with open(pyproject_toml, "rb") as f:
+                v = tomllib.load(f)["project"]["version"]
+            typer.echo(v)
 
     @staticmethod
     @app.command()
@@ -49,15 +74,13 @@ class Main:
             typer.echo("No content")
         else:
             types = get_types()
-            types_str = "".join([f"- {x}\n" for x in types])
             typer.echo(
-                f"""
-            Unknown content type{'s' if len(types) > 1 else ''}:
-            {types_str}
-            Call `{PGM} clip -t TYPE`
-            with the type of content you want to get, e.g.:
-            {PGM} clip -t {types[0]}
-            """
+                f"Unknown content type{'s' if len(types) > 1 else ''}:\n"
+                f"{get_types_str()}\n"
+                f"Call `{Main.name} clip -t TYPE`\n"
+                "with the type of content you want to get, e.g.:\n"
+                f"{Main.name} clip -t {types[0]}\n"
+                "(only works for types with known string representation.)\n"
             )
 
 

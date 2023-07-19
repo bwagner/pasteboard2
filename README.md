@@ -17,6 +17,7 @@ its types from the macOS pasteboard (clipboard). The implementation relies on
 │ clear            Empties the pasteboard.                                           │
 │ clip             Print the content of the pasteboard if it's a string.             │
 │ types            List the content types of the current pasteboard.                 │
+│ version          Outputs the version number.                                       │
 ╰────────────────────────────────────────────────────────────────────────────────────╯
 ```
 ### Clip Subcommand

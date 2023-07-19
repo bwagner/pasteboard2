@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 
-from pathlib import Path
 
 from AppKit import NSPasteboard  # type: ignore
 
