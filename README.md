@@ -8,7 +8,7 @@ its types from the macOS pasteboard (clipboard). The implementation relies on
 ## Command Line Usage
 ### Top Level
 ```
- Usage: pasteboard2.py [OPTIONS] COMMAND [ARGS]...
+ Usage: pb2 [OPTIONS] COMMAND [ARGS]...
 
 ╭─ Options ──────────────────────────────────────────────────────────────────────────╮
 │ --help          Show this message and exit.                                        │
@@ -21,7 +21,7 @@ its types from the macOS pasteboard (clipboard). The implementation relies on
 ```
 ### Clip Subcommand
 ```
- Usage: pasteboard2.py clip [OPTIONS]
+ Usage: pb2 clip [OPTIONS]
 
  Print the content of the pasteboard if it's a string.
 
