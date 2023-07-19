@@ -39,7 +39,7 @@ python -m venv ~/venv/pb2
 source ~/venv/pb2/bin/activate
 python -m pip install --upgrade pip setuptools wheel
 pip install -r requirements.txt
-./src/pasteboard2/pasteboard2.py test
+./pasteboard2/pasteboard2.py test
 deactivate
 rm -rf ~/venv/pb2
 ```

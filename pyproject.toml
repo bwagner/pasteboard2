@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 [project]
 name = "pasteboard2"
-version = "0.0.4"
+version = "0.0.5"
 authors = [
   { name="Bernhard Wagner", email="pasteboard2@nosuch.biz" },
 ]

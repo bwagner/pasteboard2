@@ -118,7 +118,7 @@ if __name__ == "__main__":
             """
             Run tests with pytest and doctest.
             """
-            tests_dir = Path(__file__).parent.parent.parent / "tests"
+            tests_dir = Path(__file__).parent.parent / "tests"
             pytest.main([tests_dir / f"test_{PGM}"])
             results = doctest.testmod()
             if results.failed == 0:
