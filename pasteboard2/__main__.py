@@ -36,8 +36,7 @@ class Main:
             pyproject_toml = Path(__file__).parent.parent / "pyproject.toml"
             print(f"no meta info available for {Main.MODULE_NAME}")
             print(f"taking version from {pyproject_toml}:")
-            with open(pyproject_toml, "rb") as f:
-                v = tomllib.load(f)["project"]["version"]
+            v = tomllib.loads(pyproject_toml.read_text())["project"]["version"]
             typer.echo(v)
 
     @staticmethod
