@@ -1,1 +1,9 @@
-from .pasteboard2 import set_content, get_pasteboard, clear_pb, is_empty, get_types, get_types_str, get_content
+from .pasteboard2 import (
+    clear_pb,
+    get_content,
+    get_pasteboard,
+    get_types,
+    get_types_str,
+    is_empty,
+    set_content,
+)
