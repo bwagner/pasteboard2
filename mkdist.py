@@ -29,8 +29,8 @@ def delete_dir(path: Path):
     return False
 
 
-def setup_dist_dir():
-    path = Path("dist")
+def setup_dist_dir(dist_dir):
+    path = Path(dist_dir)
     if not delete_dir(path):
         print(f"deleting '{path}' failed, exiting.")
         return
@@ -119,9 +119,17 @@ def set_version_in_pyproject(version_str, filepath="pyproject.toml"):
 
 
 def main():
+    """
+    Run this script at the top level of the project.
+    It makes sure the "dist" directory is empty.
+    It determines the current version of the package on pypi.
+    It bumps the patch-level of the version.
+    It builds the package in the "dist" directory.
+    It instructs how to proceed.
+    """
     dist_dir = "dist"
     print(f"setting up {dist_dir} directory")
-    setup_dist_dir()
+    setup_dist_dir(dist_dir)
     package = Path.cwd().name
     print(f"getting current version number on pypi for {package}: ", end="")
     pypi_version = get_pypi_version(package)
@@ -131,7 +139,7 @@ def main():
     set_version_in_pyproject(next_version)
     print(f"building {package}")
     build()
-    dist = Path("dist")
+    dist = Path(dist_dir)
     wheel = str(next(dist.glob("*.whl")))
     print(
         "now test by (creating) activating a virtual env\n"
@@ -141,7 +149,7 @@ def main():
         f"pip uninstall {package}\n"
         "deactivate\n"
         "if you're happy:\n"
-        "python -m twine upload dist/*\n"
+        f"python -m twine upload {dist_dir}/*\n"
     )
 
 
