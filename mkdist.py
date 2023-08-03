@@ -2,6 +2,7 @@
 
 import runpy
 import shutil
+import sys
 from pathlib import Path
 
 import requests
@@ -122,7 +123,9 @@ def main():
     """
     Run this script at the top level of the project.
     It makes sure the "dist" directory is empty.
-    It determines the current version of the package on pypi.
+    It determines the current version of the package on pypi
+      or takes the current version as provided as the first
+      argument on the command line.
     It bumps the patch-level of the version.
     It builds the package in the "dist" directory.
     It instructs how to proceed.
@@ -131,8 +134,12 @@ def main():
     print(f"setting up {dist_dir} directory")
     setup_dist_dir(dist_dir)
     package = Path.cwd().name
-    print(f"getting current version number on pypi for {package}: ", end="")
-    pypi_version = get_pypi_version(package)
+    if len(sys.argv) == 1:
+        print(f"getting current version number on pypi for {package}: ", end="")
+        pypi_version = get_pypi_version(package)
+    else:
+        print(f"getting current version number from argv for {package}: ", end="")
+        pypi_version = sys.argv.pop(1)
     print(pypi_version)
     next_version = bump_version(pypi_version)
     print(f"setting version to {next_version} for {package} in {dist_dir}")
@@ -144,7 +151,7 @@ def main():
     print(
         "now test by (creating) activating a virtual env\n"
         f"pip uninstall {package}\n"
-        f"pip install {wheel}\n"
+        f"pip install -q {wheel}\n"
         f"test the package {package} interactively\n"
         f"pip uninstall {package}\n"
         "deactivate\n"
