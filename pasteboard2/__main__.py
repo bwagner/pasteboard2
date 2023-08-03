@@ -51,7 +51,7 @@ class Main:
     @app.command()
     def types():
         """
-        List the content types of the current pasteboard.
+        Lists the content types of the current pasteboard.
         """
         t_str = get_types_str()
         typer.echo(t_str or "clipboard empty, hence no types")
@@ -64,7 +64,7 @@ class Main:
         )
     ):
         """
-        Print the content of the pasteboard if it's a string.
+        Prints the content of the pasteboard if it's a string.
         """
         if content := get_content(clip_type):
             typer.echo(f"clipboard contains: '{content}'")
