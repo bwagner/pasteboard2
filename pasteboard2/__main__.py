@@ -84,9 +84,15 @@ class Main:
 
 
 def main():
+    if len(sys.argv) == 1:
+        sys.argv.append("clip")
     manager = Main()
     manager.app()
 
 
 if __name__ == "__main__":
+    # NOTE! This is not called when invoking pb2 from the command line,
+    # because pyproject.toml declares the entry point as
+    # pasteboard2=pasteboard2.__main__:main
+    # So: Don't do anything here except calling main()!
     main()
