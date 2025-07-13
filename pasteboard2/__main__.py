@@ -53,8 +53,7 @@ class Main:
         """
         Lists the content types of the current pasteboard.
         """
-        t_str = get_types_str()
-        typer.echo(t_str or "clipboard empty, hence no types")
+        return get_types_str() or "clipboard empty, hence no types"
 
     @staticmethod
     @app.command()
