@@ -30,6 +30,7 @@ its types from the macOS pasteboard (clipboard). The implementation relies on
 │ --type  -t      TEXT  The type of content to get [default: public.utf8-plain-text] │
 │ --help                Show this message and exit.                                  │
 ╰────────────────────────────────────────────────────────────────────────────────────╯
+```
 ## Programmatic Use
 ```
 import pasteboard2 as pb2
@@ -39,8 +40,6 @@ pb2.is_emtpy() # returns True if clipboard is empty
 pb2.get_types() # returns a list of types of the clipboard contents
 pb2.get_types_str() # get_types() formatted as string
 pb2.get_content(t: str = None) # gets clipboard content. Parameter t chooses a type
-```
-
 ```
 ## Test
 ```
